@@ -78,6 +78,13 @@ table.fields td:first-child{width:38%;font-size:14px;color:var(--muted);padding-
 .status.ok{color:var(--ok)}
 .status.warn{color:var(--stamp)}
 </style>
+<style>
+.req{display:flex;flex-direction:column;gap:8px}
+.req .label{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+.ui{font-family:var(--f-mono);font-size:13px;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:1px 6px;white-space:nowrap}
+ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.backup{background:var(--stamp-soft);border-radius:14px;padding:14px 16px}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -85,12 +92,12 @@ table.fields td:first-child{width:38%;font-size:14px;color:var(--muted);padding-
 <section class="hero">
   <div>
     <p class="eyebrow">Practical Application of AI in Tourism · Week 9</p>
-    <h1>Name Card <span>App</span> Lab</h1>
-    <p class="lead">Give AI a few keywords. Get a working name card app with your own link. Anyone can open it on a phone and make a name card.</p>
+    <h1>Build Your <span>Name Card</span> App</h1>
+    <p class="lead">You give Gemini a few keywords. Gemini builds a working app. You publish it on the internet with Netlify. Anyone can open your app on a phone and make a name card.</p>
   </div>
   <figure class="example" style="margin:0">
-    <img src="example.jpg" alt="Finished example: a front and back name card made with the Himal Cards app">
-    <p>Finished example: "Himal Cards", a name card app for Nepali restaurants in Seoul. <a href="app.html" target="_blank" rel="noopener">Open the example app</a></p>
+    <img src="example.jpg" alt="Finished example: a front and back name card saved from a student app">
+    <p>What you will save at the end: the front and back of one name card. Your app and card will look different, because Gemini designs each app in its own way.</p>
   </figure>
 </section>
 
@@ -98,298 +105,176 @@ table.fields td:first-child{width:38%;font-size:14px;color:var(--muted);padding-
   <div class="mission basic">
     <h3>Basic mission</h3>
     <ul>
-      <li>Make your own name card app and get its link.</li>
-      <li>Make one name card with your app and save it as PNG.</li>
-      <li>Post the link and the PNG on Padlet.</li>
+      <li>Build your name card app in Gemini Canvas (Steps 1 to 5).</li>
+      <li>Publish it with Netlify and get your link (Steps 6 to 8).</li>
+      <li>Make one name card with your app and post it on Padlet (Step 9).</li>
     </ul>
   </div>
   <div class="mission challenge">
     <h3>Challenge mission</h3>
     <ul>
-      <li>Ask Gemini Canvas to build your own version of the app (Step 8).</li>
-      <li>Make a second card for a classmate's business.</li>
+      <li>Ask Gemini for one more feature (Step 5, second request).</li>
+      <li>Give your Netlify project a better name (Step 8).</li>
     </ul>
   </div>
 </section>
 
 <!-- STEP 1 -->
 <section class="step" id="s1">
-  <div class="step-head"><div class="num">1</div><div><span class="tag me">ME FIRST</span><h2>Choose your keywords</h2><p>You are the owner of a small name card studio. Who do you make cards for?</p></div></div>
+  <div class="step-head"><div class="num">1</div><div><span class="tag me">ME FIRST</span><h2>Choose your keywords</h2><p>You own a small name card studio. Your keywords go into the requests below by themselves.</p></div></div>
   <div class="grid2">
-    <div>
-      <label for="studio">My studio name</label>
-      <input id="studio" type="text" placeholder="[MY STUDIO NAME] for example Himal Cards" maxlength="30">
-    </div>
-    <div>
-      <label for="niche">Who I make cards for</label>
-      <select id="niche"></select>
-      <input id="nicheOwn" type="text" placeholder="[MY OWN IDEA] for example Mongolian hair salons in Seoul" style="margin-top:8px;display:none" maxlength="80">
-    </div>
-    <div>
-      <label for="language">My customers' language</label>
-      <select id="language"></select>
-    </div>
-    <div>
-      <label for="sample">Card style</label>
-      <select id="sample">
-        <option value="1">1. Classic (logo left, line at the bottom)</option>
-        <option value="2">2. Center (everything in the middle)</option>
-        <option value="3">3. Split (color block on the left)</option>
-        <option value="4">4. Minimal (big name, lots of white)</option>
-        <option value="5">5. Bold (full color card)</option>
-        <option value="6">6. Corner (color circle in the corner)</option>
-      </select>
-    </div>
+    <div><label for="studio">My studio name</label><input id="studio" type="text" placeholder="[MY STUDIO NAME] for example Himal Cards" maxlength="30"></div>
+    <div><label for="niche">Who I make cards for</label><select id="niche"></select>
+      <input id="nicheOwn" type="text" placeholder="[MY OWN IDEA] for example Mongolian hair salons in Seoul" style="margin-top:8px;display:none" maxlength="80"></div>
+    <div><label for="language">My customers' language</label><select id="language"></select></div>
+    <div><label for="style">Style word</label><select id="style"><option>warm</option><option>clean</option><option>bold</option><option>elegant</option><option>friendly</option></select></div>
   </div>
-  <div>
-    <label>Main color</label>
-    <div class="swatches" id="colors"></div>
-  </div>
-  <div class="done"><b>Done when it looks like this:</b> every box above has your choice, and the studio name is not empty.</div>
-  <div class="hint"><b>Stuck?</b> Think of shops you know near your home in Korea. Pick the language those customers speak.</div>
+  <div><label>Main color</label><div class="swatches" id="colors"></div></div>
+  <div class="done"><b>Done when it looks like this:</b> every box has your choice. Request 1 in Step 2 shows your studio name.</div>
+  <div class="hint"><b>Stuck?</b> Think of shops near your home in Korea. Pick the language their customers speak.</div>
 </section>
 
 <!-- STEP 2 -->
 <section class="step" id="s2">
-  <div class="step-head"><div class="num">2</div><div><span class="tag ai">AI SECOND</span><h2>Ask Gemini for the card words</h2><p>Copy this request. Open Gemini in a new tab, start a new chat, paste it and send.</p></div></div>
-  <div class="prompt" id="aiPrompt"></div>
-  <div class="btns">
-    <button class="btn-main" id="copyAi">Copy the request</button>
-    <a class="btn" href="https://gemini.google.com/app" target="_blank" rel="noopener">Open Gemini</a>
-    <span class="copied" id="copiedAi" hidden>Copied</span>
-  </div>
-  <div class="done"><b>Done when it looks like this:</b> Gemini answers with 8 lines, starting with "Business name:" and ending with "Welcome line:".</div>
-  <div class="hint"><b>Stuck?</b> If Gemini shows "I encountered an error", press the retry arrow under the answer, or start a new chat and paste again. Your answer can be different from your classmates'. That is normal.</div>
+  <div class="step-head"><div class="num">2</div><div><span class="tag ai">AI SECOND</span><h2>Request 1: build the app</h2></div></div>
+  <ol class="steps">
+    <li>Open Gemini in a new tab. Start a new chat.</li>
+    <li>Press <span class="ui">+</span> next to the message box, then choose <span class="ui">Canvas</span>. A "Canvas" chip appears above the message box.</li>
+    <li>Copy Request 1, paste it, and send.</li>
+  </ol>
+  <div class="req"><span class="label">REQUEST 1</span><div class="prompt" id="r1"></div>
+    <div class="btns"><button class="btn-main" data-copy="r1">Copy Request 1</button><a class="btn" href="https://gemini.google.com/app" target="_blank" rel="noopener">Open Gemini</a><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> a panel opens on the right with your app: a form on the left and a name card on the right. Type in the form and the card changes.</div>
+  <div class="hint"><b>Stuck?</b> If Gemini says "I encountered an error", type <b>Please try again.</b> and send. If the answer looks empty, refresh the page (F5). Your app can look different from your classmates' app. That is normal.</div>
 </section>
 
 <!-- STEP 3 -->
 <section class="step" id="s3">
-  <div class="step-head"><div class="num">3</div><div><span class="tag ai">AI SECOND</span><h2>Paste Gemini's answer here</h2><p>In Gemini, press the copy icon under the answer. Then paste everything into this box.</p></div></div>
-  <textarea id="answer" placeholder="Paste Gemini's whole answer here"></textarea>
-  <p class="status" id="parseStatus"></p>
-  <table class="fields" id="fields"></table>
-  <div class="done"><b>Done when it looks like this:</b> the boxes below the paste box fill in by themselves.</div>
-  <div class="hint"><b>Stuck?</b> If a box stays empty, type it yourself. Keep the phone number and email fictional, like 010-0000-0000.</div>
+  <div class="step-head"><div class="num">3</div><div><span class="tag ai">AI SECOND</span><h2>Request 2: add save buttons</h2><p>Stay in the same chat. Copy, paste, send.</p></div></div>
+  <div class="req"><span class="label">REQUEST 2</span><div class="prompt" id="r2"></div>
+    <div class="btns"><button class="btn-main" data-copy="r2">Copy Request 2</button><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> two buttons, "Save front PNG" and "Save back PNG", are under the card.</div>
+  <div class="hint"><b>Stuck?</b> Error: type <b>Please try again.</b> Empty answer: refresh the page (F5). We tested this: "Please try again." worked.</div>
 </section>
 
 <!-- STEP 4 -->
 <section class="step" id="s4">
-  <div class="step-head"><div class="num">4</div><div><span class="tag fin">ME FINAL</span><h2>My Touch: change one thing</h2><p>Read your card words. Find one word or line that does not sound like you. Change it in the boxes of Step 3.</p></div></div>
-  <div class="grid2">
-    <div><label for="touchFrom">AI wrote</label><input id="touchFrom" type="text" placeholder="[WHAT AI WROTE]"></div>
-    <div><label for="touchTo">I changed it to</label><input id="touchTo" type="text" placeholder="[MY NEW WORDS]"></div>
-  </div>
-  <div class="done"><b>Done when it looks like this:</b> both boxes are filled, and your new words show on the card in Step 5.</div>
+  <div class="step-head"><div class="num">4</div><div><span class="tag ai">AI SECOND</span><h2>Request 3: add a QR code</h2><p>Same chat. Copy, paste, send.</p></div></div>
+  <div class="req"><span class="label">REQUEST 3</span><div class="prompt" id="r3"></div>
+    <div class="btns"><button class="btn-main" data-copy="r3">Copy Request 3</button><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> the back of the card shows a QR code, and there is a "Save contact" button.</div>
+  <div class="hint"><b>Stuck?</b> If you do not see the change, refresh the page (F5) and open the app panel again.</div>
 </section>
 
 <!-- STEP 5 -->
 <section class="step" id="s5">
-  <div class="step-head"><div class="num">5</div><div><h2>See your app and get its link</h2><p>This is your app. Try it here, then open it in its own tab.</p></div></div>
-  <div class="frame"><iframe id="preview" title="My name card app preview"></iframe></div>
-  <div class="btns">
-    <a class="btn btn-main" id="openApp" target="_blank" rel="noopener" href="app.html">Open my app</a>
-    <button id="copyLink">Copy my app link</button>
-    <span class="copied" id="copiedLink" hidden>Copied</span>
+  <div class="step-head"><div class="num">5</div><div><span class="tag fin">ME FINAL</span><h2>My Touch: change one thing</h2><p>Look at your app. Find one thing that does not feel like you: a word, a color, the title, the example name. Ask Gemini to change only that.</p></div></div>
+  <div class="grid2">
+    <div><label for="touchWhat">What I want to change</label><input id="touchWhat" type="text" placeholder="[ONE THING] for example the title color"></div>
+    <div><label for="touchTo">Change it to</label><input id="touchTo" type="text" placeholder="[MY IDEA] for example dark green"></div>
   </div>
-  <div class="linkbox" id="linkBox"></div>
-  <div class="done"><b>Done when it looks like this:</b> a new tab opens with your studio name at the top. That tab's web address is your app link.</div>
-  <div class="hint"><b>Stuck?</b> Changes you make inside the open app are not saved in the link. To change the link, change the boxes on this page, then press "Copy my app link" again.</div>
+  <div class="req"><span class="label">REQUEST 4 (MY TOUCH)</span><div class="prompt" id="r4"></div>
+    <div class="btns"><button class="btn-main" data-copy="r4">Copy Request 4</button><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> your change shows in the app. Everything else still works.</div>
+  <div class="hint"><b>Challenge:</b> ask for one more feature in a new request, for example "Add 3 color theme buttons."</div>
 </section>
 
 <!-- STEP 6 -->
 <section class="step" id="s6">
-  <div class="step-head"><div class="num">6</div><div><h2>Make your own name card</h2><p>In your app, type a nickname (not your full real name). Press "Save both in one PNG".</p></div></div>
-  <div class="done"><b>Done when it looks like this:</b> a PNG file with the front and back of the card is in your Downloads folder.</div>
-  <div class="hint"><b>Stuck?</b> If the download does not start, the image appears under the buttons. Right click it and choose "Save image as".</div>
+  <div class="step-head"><div class="num">6</div><div><h2>Download your app file</h2></div></div>
+  <ol class="steps">
+    <li>At the top of the app panel, press <span class="ui">Export (내보내기)</span>, then <span class="ui">Download code (코드 다운로드)</span>.</li>
+    <li>Open your Downloads folder. Find the new .html file.</li>
+    <li>Rename it to <b>index.html</b> (right click, Rename).</li>
+  </ol>
+  <div class="done"><b>Done when it looks like this:</b> a file named <b>index.html</b> is in your Downloads folder. If you double click it, your app opens in the browser.</div>
+  <div class="hint"><b>Why rename?</b> We tested it: Netlify published the file named index.html at once, but a file with spaces in its name got stuck.</div>
 </section>
 
 <!-- STEP 7 -->
 <section class="step" id="s7">
-  <div class="step-head"><div class="num">7</div><div><span class="tag fin">ME FINAL</span><h2>Check one thing, then submit</h2></div></div>
-  <label class="check"><input type="checkbox" id="chk1"><span><b>Check 1.</b> Open your app link on your phone. Scan the QR code on the back of the card with the phone camera. Does your contact appear? Yes means checked.</span></label>
-  <label class="check"><input type="checkbox" id="chk2"><span><b>Check 2.</b> The phone number and email on my card are fictional.</span></label>
-  <div class="prompt" id="padletText"></div>
-  <div class="btns">
-    <button class="btn-main" id="copyPadlet">Copy my Padlet post</button>
-    <span class="copied" id="copiedPadlet" hidden>Copied</span>
-  </div>
-  <ol>
-    <li>Open the class Padlet. Make a new post. Paste the text above. Attach your card PNG.</li>
-    <li>Press the three dots on your post, then "Copy link to post".</li>
-    <li>In Google Classroom, open the Week 9 assignment. Add a Link, paste it, then press Turn in.</li>
+  <div class="step-head"><div class="num">7</div><div><h2>Publish with Netlify</h2></div></div>
+  <ol class="steps">
+    <li>Open <a href="https://app.netlify.com/signup" target="_blank" rel="noopener">app.netlify.com/signup</a>. Sign up with your school Google account. (First time only.)</li>
+    <li>Open <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">app.netlify.com/drop</a>.</li>
+    <li>Drag your <b>index.html</b> file into the box "Drag &amp; drop to publish". Wait until the project page opens.</li>
   </ol>
-  <div class="done"><b>Done when it looks like this:</b> your post on Padlet shows your card image and your app link, and Classroom says "Turned in".</div>
+  <div class="done"><b>Done when it looks like this:</b> a project page with a name like <b>incredible-wisp-fcca9c</b>, a green link ending in <b>.netlify.app</b>, and a <b>Private</b> label.</div>
+  <div class="hint"><b>Stuck?</b> If you drop the file without signing in, Netlify puts a password on your site. Sign in first, then drop again.</div>
 </section>
 
 <!-- STEP 8 -->
 <section class="step" id="s8">
-  <div class="step-head"><div class="num">8</div><div><span class="tag fin">CHALLENGE</span><h2>Build your own version with Gemini Canvas</h2><p>Copy this request. In Gemini, press the + button, choose Canvas, paste and send.</p></div></div>
-  <div class="prompt" id="canvasPrompt"></div>
-  <div class="btns">
-    <button id="copyCanvas">Copy the Canvas request</button>
-    <span class="copied" id="copiedCanvas" hidden>Copied</span>
-  </div>
-  <div class="hint"><b>Stuck?</b> Building a whole app is a big job for Gemini. If you see an error or only code text, press retry or start a new chat with Canvas turned on. Your Step 5 app is already your finished result.</div>
+  <div class="step-head"><div class="num">8</div><div><h2>Make it public and copy your link</h2></div></div>
+  <ol class="steps">
+    <li>On the project page, press <span class="ui">Make public</span>. New Netlify accounts make every project private at first.</li>
+    <li>Copy the green link ending in <b>.netlify.app</b>. This is your app link.</li>
+    <li>Challenge: <span class="ui">Project configuration</span> → <span class="ui">Change project name</span>, for example <b>w09-himal-cards</b>.</li>
+  </ol>
+  <div class="done"><b>Done when it looks like this:</b> the Private label is gone. Your link opens your app in a new tab.</div>
 </section>
 
-<p class="note-legal">Practice project. Do not sell, and do not use real personal contact details. Everything you type stays in your browser.</p>
+<!-- STEP 9 -->
+<section class="step" id="s9">
+  <div class="step-head"><div class="num">9</div><div><span class="tag fin">ME FINAL</span><h2>Check one thing, then submit</h2></div></div>
+  <label class="check"><input type="checkbox" id="chk1"><span><b>Check.</b> Open your link on your phone (not signed in to Netlify). Make a card with a nickname and save the PNG. Scan the QR code with the phone camera. Does your contact appear? Yes means checked.</span></label>
+  <div><label for="myLink">My app link</label><input id="myLink" type="text" placeholder="[MY LINK] for example https://w09-himal-cards.netlify.app"></div>
+  <div class="prompt" id="padletText"></div>
+  <div class="btns"><button class="btn-main" data-copy="padletText">Copy my Padlet post</button><span class="copied" hidden>Copied</span></div>
+  <ol class="steps">
+    <li>Open the class Padlet. Make a new post. Paste the text. Attach your card PNG.</li>
+    <li>On your post, press the three dots, then "Copy link to post".</li>
+    <li>In Google Classroom, open the Week 9 assignment. Add a Link, paste it, press Turn in.</li>
+  </ol>
+  <div class="done"><b>Done when it looks like this:</b> your Padlet post shows your card and your app link. Classroom says "Turned in".</div>
+</section>
+
+<section class="backup">
+  <h3 style="font-size:18px">Gemini did not work after 3 tries?</h3>
+  <p>Use the <a href="builder.html">Backup Name Card Lab</a>. You choose keywords there and get a ready app link. Then go back to Step 9.</p>
+</section>
+
+<p class="note-legal">Practice project. Do not sell, and do not use real personal contact details.</p>
 </div>
 
 <script>
 (function(){
 var $ = function(id){ return document.getElementById(id); };
 var NICHES = [
-  {t:"Nepali restaurants and shops in Seoul", lang:"Nepali", card:{business:"Himal Kitchen",businessLocal:"हिमाल किचन",name:"Sita Rai",title:"Owner and Head Chef",s1:"Nepali home cooking",s2:"Catering for events",s3:"Halal friendly menu",greeting:"स्वागत छ! Welcome!"}},
-  {t:"Uzbek restaurants and markets in Korea", lang:"Uzbek", card:{business:"Samarkand Table",businessLocal:"Samarqand Dasturxoni",name:"Aziz Karimov",title:"Owner",s1:"Fresh plov every day",s2:"Uzbek bread and sweets",s3:"Family party orders",greeting:"Xush kelibsiz! Welcome!"}},
-  {t:"Vietnamese restaurants and nail shops in Korea", lang:"Vietnamese", card:{business:"Pho Saigon House",businessLocal:"Nhà Phở Sài Gòn",name:"Linh Tran",title:"Manager",s1:"Hot pho and banh mi",s2:"Lunch set menu",s3:"Delivery near campus",greeting:"Chào mừng quý khách! Welcome!"}},
-  {t:"Guesthouses for foreign travelers in Seoul", lang:"English", card:{business:"Hanok Stay Seoul",businessLocal:"",name:"Mina Park",title:"Host",s1:"Private hanok rooms",s2:"Airport pick up",s3:"Local food tours",greeting:"Welcome to your home in Seoul!"}},
-  {t:"Small travel agencies for foreign tourists", lang:"English", card:{business:"Silk Road Seoul",businessLocal:"",name:"Dilnoza Rahimova",title:"CEO and Travel Planner",s1:"Halal K food tours",s2:"Group trip planning",s3:"Visa document help",greeting:"Your trip starts here. Welcome!"}},
-  {t:"K beauty shops for tourists in Myeongdong", lang:"Chinese", card:{business:"Glow Myeongdong",businessLocal:"明洞光彩",name:"Jisoo Lee",title:"Beauty Advisor",s1:"Skin care consulting",s2:"Tax free shopping",s3:"Gift packaging",greeting:"欢迎光临! Welcome!"}},
-  {t:"Korean language academies for foreigners", lang:"Korean", card:{business:"Hangeul Bridge",businessLocal:"한글 브리지",name:"Ara Kim",title:"Head Teacher",s1:"TOPIK test classes",s2:"Korean for work",s3:"Small group lessons",greeting:"환영합니다! Welcome!"}},
-  {t:"Mongolian shops and travel services in Korea", lang:"Mongolian", card:{business:"Blue Sky Travel",businessLocal:"Хөх Тэнгэр Аялал",name:"Bat Erdene",title:"Travel Consultant",s1:"Cheap flight tickets",s2:"Cargo to Mongolia",s3:"Phone and SIM help",greeting:"Тавтай морилно уу! Welcome!"}},
-  {t:"My own idea", lang:"English", card:null}
+  ["Nepali restaurants and shops in Seoul","Nepali"],["Uzbek restaurants and markets in Korea","Uzbek"],
+  ["Vietnamese restaurants and nail shops in Korea","Vietnamese"],["Guesthouses for foreign travelers in Seoul","English"],
+  ["Small travel agencies for foreign tourists","English"],["K beauty shops for tourists in Myeongdong","Chinese"],
+  ["Korean language academies for foreigners","Korean"],["Mongolian shops and travel services in Korea","Mongolian"],["My own idea","English"]
 ];
 var LANGS = ["Nepali","Uzbek","Vietnamese","Mongolian","English","Chinese","Japanese","Korean","Russian","Indonesian","Bengali","Sinhala"];
-var COLORS = [["Deep red","#8B1E2D"],["Teal","#0E7C80"],["Navy","#1F2A44"],["Forest","#2F6B3A"],["Orange","#D9572E"],["Purple","#5B3FA0"]];
-var FIELDS = [
-  ["business","Business name"],["businessLocal","Business name in customers' language"],["name","Person name"],["title","Job title"],
-  ["mobile","Mobile"],["email","Email"],["address","Address"],["website","Website"],
-  ["s1","Service 1"],["s2","Service 2"],["s3","Service 3"],["greeting","Welcome line"]
-];
-var DEFAULTS = {mobile:"010-0000-0000", email:"hello@example.com", address:"Seoul, Korea", website:"www.example.com"};
-
-NICHES.forEach(function(n, i){ var o = document.createElement("option"); o.value = i; o.textContent = n.t; $("niche").appendChild(o); });
-LANGS.forEach(function(l){ var o = document.createElement("option"); o.textContent = l; $("language").appendChild(o); });
-COLORS.forEach(function(c, i){
-  var lb = document.createElement("label");
-  lb.innerHTML = '<input type="radio" name="color" value="' + c[1] + '"' + (i === 0 ? " checked" : "") + '><span class="dot" style="background:' + c[1] + '"></span>' + c[0];
-  $("colors").appendChild(lb);
-});
-FIELDS.forEach(function(f){
-  var tr = document.createElement("tr");
-  tr.innerHTML = '<td><label for="f_' + f[0] + '" style="margin:0;font-weight:400">' + f[1] + '</label></td><td><input type="text" id="f_' + f[0] + '"></td>';
-  $("fields").appendChild(tr);
-});
-
-function nicheText(){
-  var n = NICHES[+$("niche").value];
-  return n.card ? n.t : ($("nicheOwn").value.trim() || "[MY OWN IDEA]");
-}
+var COLORS = [["Deep red","deep red","#8B1E2D"],["Teal","teal","#0E7C80"],["Navy","navy blue","#1F2A44"],["Forest","forest green","#2F6B3A"],["Orange","orange","#D9572E"],["Purple","purple","#5B3FA0"]];
+NICHES.forEach(function(n,i){ var o=document.createElement("option"); o.value=i; o.textContent=n[0]; $("niche").appendChild(o); });
+LANGS.forEach(function(l){ var o=document.createElement("option"); o.textContent=l; $("language").appendChild(o); });
+COLORS.forEach(function(c,i){ var lb=document.createElement("label"); lb.innerHTML='<input type="radio" name="color" value="'+i+'"'+(i===0?" checked":"")+'><span class="dot" style="background:'+c[2]+'"></span>'+c[0]; $("colors").appendChild(lb); });
 function studio(){ return $("studio").value.trim() || "[MY STUDIO NAME]"; }
-function color(){ var c = document.querySelector('input[name=color]:checked'); return c ? c.value : COLORS[0][1]; }
-function colorName(){ var v = color(); var c = COLORS.filter(function(x){ return x[1] === v; })[0]; return c ? c[0].toLowerCase() : "teal"; }
-
-function fillFromNiche(){
-  var n = NICHES[+$("niche").value];
-  $("nicheOwn").style.display = n.card ? "none" : "block";
-  $("language").value = n.lang;
-  var card = n.card || {business:"",businessLocal:"",name:"",title:"",s1:"",s2:"",s3:"",greeting:""};
-  FIELDS.forEach(function(f){ var v = card[f[0]]; if (v === undefined) v = DEFAULTS[f[0]] || ""; $("f_" + f[0]).value = v; });
-}
-
-function aiPrompt(){
-  var L = $("language").value;
-  return "I am making a name card for a business. Fill in this form. Use simple English. Contact details must be fictional.\n\n" +
-    "My idea: a name card studio called " + studio() + " for " + nicheText() + ".\n" +
-    "Customers' language: " + L + "\n\n" +
-    "Answer ONLY in this format, one line each:\n" +
-    "Business name: (an example customer business, 1 to 3 words)\n" +
-    "Business name in " + L + ":\n" +
-    "Person name: (fictional)\n" +
-    "Job title:\n" +
-    "Service 1: (under 5 words)\n" +
-    "Service 2: (under 5 words)\n" +
-    "Service 3: (under 5 words)\n" +
-    "Welcome line: (a short welcome line in " + L + ", then the same in English)";
-}
-function canvasPrompt(){
-  var L = $("language").value, N = nicheText(), S = studio();
-  return "Build a complete, working web app in ONE single HTML file.\n\n" +
-    "App name: " + S + " Name Card Maker\nWho it is for: " + N + "\nCustomers' language: " + L + "\nMain color: " + colorName() + "\n\n" +
-    "LAYOUT\n- Top bar: app name and the label \"Practice project, not for sale\".\n- Left: input form. Right: live card preview that changes while I type. On a phone, the form is on top.\n\n" +
-    "INPUT FORM (prefill with a fictional example for " + N + ")\nBusiness name, business name in " + L + ", person name, job title, mobile, email, address, website, three services (under 5 words each), one welcome line in " + L + ", logo upload (optional).\n\n" +
-    "DESIGN\n- 6 sample design buttons. Background color and accent color pickers. 4 fonts: Noto Sans, Noto Serif, Poppins, Nanum Myeongjo.\n\n" +
-    "CARD PREVIEW\n- Ratio 90 x 50 mm. Front: logo, business names, person name, job title. Back: three services, contact details, welcome line, QR code with the contact.\n\n" +
-    "SAVE BUTTONS\n- Save front PNG, Save back PNG (draw on an HTML canvas, 1063 x 591 px), Save contact (vCard).\n\n" +
-    "RULES\n- Everything runs in the browser. No login. Fictional contact details only. Simple English.";
-}
-function cardData(){
-  var card = {}; FIELDS.forEach(function(f){ card[f[0]] = $("f_" + f[0]).value.trim(); });
-  return {studio: $("studio").value.trim() || "My Studio", niche: nicheText(), language: $("language").value, accent: color(), sample: +$("sample").value, font: "Noto Sans", card: card};
-}
-function encode(obj){
-  var bytes = new TextEncoder().encode(JSON.stringify(obj)), bin = "";
-  for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
-  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-}
-function appLink(){
-  return new URL("app.html#d=" + encode(cardData()), location.href).href;
-}
-function padletText(){
-  var t = studio() + " Name Card Maker\n" +
-    "For: " + nicheText() + "\n" +
-    "My app: " + appLink() + "\n" +
-    "My Touch: AI wrote \"" + ($("touchFrom").value.trim() || "[WHAT AI WROTE]") + "\", I changed it to \"" + ($("touchTo").value.trim() || "[MY NEW WORDS]") + "\"\n" +
-    "Check: QR code shows my contact on my phone: " + ($("chk1").checked ? "Yes" : "No");
-  return t;
-}
-
-var timer = null;
+function niche(){ var i=+$("niche").value; return i===NICHES.length-1 ? ($("nicheOwn").value.trim()||"[MY OWN IDEA]") : NICHES[i][0]; }
+function color(){ var c=document.querySelector('input[name=color]:checked'); return COLORS[c?+c.value:0][1]; }
+function r1(){ return 'Make a one page web app called "' + studio() + ' Name Card Maker" for ' + niche() + '.\nLeft: a form with business name, person name, job title, phone, email, and a welcome line in ' + $("language").value + '.\nRight: a live preview of the name card front and back (90 x 50 mm shape) that changes while I type.\nMain color: ' + color() + '. Style: ' + $("style").value + '. Simple English. Use fictional example details.'; }
+var R2 = 'Add two buttons under the preview: "Save front PNG" and "Save back PNG". Draw each card on an HTML canvas (1063 x 591 px) and download it as a PNG. Do not use html2canvas. If the download is blocked, show the image below the buttons so I can right click and save it.';
+var R3 = 'Add a QR code on the back of the card. The QR code holds my contact (vCard). Also add a button "Save contact (vCard)" that downloads a .vcf file.';
+function r4(){ return 'Change ' + ($("touchWhat").value.trim()||"[ONE THING]") + ' to ' + ($("touchTo").value.trim()||"[MY IDEA]") + '. Keep everything else the same.'; }
+function padlet(){ return studio() + ' Name Card Maker\nFor: ' + niche() + '\nMy app: ' + ($("myLink").value.trim()||"[MY LINK]") + '\nMy Touch: I changed ' + ($("touchWhat").value.trim()||"[ONE THING]") + ' to ' + ($("touchTo").value.trim()||"[MY IDEA]") + '\nCheck: QR code shows my contact on my phone: ' + ($("chk1").checked?"Yes":"No"); }
 function update(){
-  $("aiPrompt").textContent = aiPrompt();
-  $("canvasPrompt").textContent = canvasPrompt();
-  var link = appLink();
-  $("linkBox").textContent = link;
-  $("openApp").href = link;
-  $("padletText").textContent = padletText();
-  clearTimeout(timer);
-  timer = setTimeout(function(){ $("preview").src = link; }, 400);
+  $("nicheOwn").style.display = (+$("niche").value===NICHES.length-1) ? "block" : "none";
+  $("r1").textContent=r1(); $("r2").textContent=R2; $("r3").textContent=R3; $("r4").textContent=r4(); $("padletText").textContent=padlet();
 }
-
-function parseAnswer(){
-  var text = $("answer").value; if (!text.trim()) { $("parseStatus").textContent = ""; return; }
-  var map = [
-    [/^business name in\b/i, "businessLocal"], [/^business name\b/i, "business"], [/^person name\b|^name\b/i, "name"],
-    [/^job title\b|^title\b/i, "title"], [/^service\s*1\b/i, "s1"], [/^service\s*2\b/i, "s2"], [/^service\s*3\b/i, "s3"],
-    [/^welcome( line)?\b/i, "greeting"]
-  ];
-  var found = 0;
-  text.split(/\r?\n/).forEach(function(line){
-    var clean = line.replace(/\*\*/g, "").replace(/^[\s*•>#\d.)]+(?=[A-Za-z])/, "").trim();
-    var idx = clean.indexOf(":"); if (idx < 0) return;
-    var key = clean.slice(0, idx).trim(), val = clean.slice(idx + 1).trim();
-    if (!val) return;
-    for (var i = 0; i < map.length; i++) { if (map[i][0].test(key)) { $("f_" + map[i][1]).value = val; found++; break; } }
+$("niche").addEventListener("change", function(){ $("language").value = NICHES[+this.value][1]; update(); });
+["studio","nicheOwn","language","style","touchWhat","touchTo","myLink","chk1"].forEach(function(id){ $(id).addEventListener("input",update); $(id).addEventListener("change",update); });
+document.querySelectorAll('input[name=color]').forEach(function(r){ r.addEventListener("change",update); });
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener("click", function(){
+    var text=$(b.getAttribute("data-copy")).textContent, flag=b.parentNode.querySelector(".copied");
+    var done=function(){ flag.hidden=false; setTimeout(function(){ flag.hidden=true; },1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function(){ fb(text); done(); }); else { fb(text); done(); }
   });
-  var st = $("parseStatus");
-  if (found >= 6) { st.className = "status ok"; st.textContent = found + " boxes filled from Gemini's answer. Read them and fix anything that looks wrong."; }
-  else { st.className = "status warn"; st.textContent = "Only " + found + " boxes were found. Check that you pasted the whole answer, or type the empty boxes yourself."; }
-  update();
-}
-
-function copy(text, flagId){
-  var done = function(){ var f = $(flagId); f.hidden = false; setTimeout(function(){ f.hidden = true; }, 1800); };
-  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
-  else { fallbackCopy(text); done(); }
-}
-function fallbackCopy(text){
-  var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
-  try { document.execCommand("copy"); } catch(e) {}
-  ta.remove();
-}
-
-$("niche").addEventListener("change", function(){ fillFromNiche(); update(); });
-["studio","nicheOwn","language","sample","touchFrom","touchTo"].forEach(function(id){ $(id).addEventListener("input", update); $(id).addEventListener("change", update); });
-document.querySelectorAll('input[name=color]').forEach(function(r){ r.addEventListener("change", update); });
-FIELDS.forEach(function(f){ $("f_" + f[0]).addEventListener("input", update); });
-["chk1","chk2"].forEach(function(id){ $(id).addEventListener("change", update); });
-$("answer").addEventListener("input", parseAnswer);
-$("copyAi").onclick = function(){ copy(aiPrompt(), "copiedAi"); };
-$("copyCanvas").onclick = function(){ copy(canvasPrompt(), "copiedCanvas"); };
-$("copyLink").onclick = function(){ copy(appLink(), "copiedLink"); };
-$("copyPadlet").onclick = function(){ copy(padletText(), "copiedPadlet"); };
-
-fillFromNiche(); update();
+});
+function fb(t){ var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy");}catch(e){} ta.remove(); }
+update();
 })();
 </script>
 </body>
