@@ -105,16 +105,16 @@ ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
   <div class="mission basic">
     <h3>Basic mission</h3>
     <ul>
-      <li>Build your name card app in Gemini Canvas (Steps 1 to 5).</li>
-      <li>Publish it with Netlify and get your link (Steps 6 to 8).</li>
-      <li>Make one name card with your app and post it on Padlet (Step 9).</li>
+      <li>Build your name card app in Gemini Canvas, with a design toolkit and a design from a photo (Steps 1 to 7).</li>
+      <li>Publish it with Netlify and get your link (Steps 8 to 10).</li>
+      <li>Make one name card with your app and post it on Padlet (Step 11).</li>
     </ul>
   </div>
   <div class="mission challenge">
     <h3>Challenge mission</h3>
     <ul>
-      <li>Ask Gemini for one more feature (Step 5, second request).</li>
-      <li>Give your Netlify project a better name (Step 8).</li>
+      <li>Ask Gemini for one more feature (Step 7, second request).</li>
+      <li>Give your Netlify project a better name (Step 10).</li>
     </ul>
   </div>
 </section>
@@ -168,20 +168,45 @@ ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
 
 <!-- STEP 5 -->
 <section class="step" id="s5">
-  <div class="step-head"><div class="num">5</div><div><span class="tag fin">ME FINAL</span><h2>My Touch: change one thing</h2><p>Look at your app. Find one thing that does not feel like you: a word, a color, the title, the example name. Ask Gemini to change only that.</p></div></div>
-  <div class="grid2">
-    <div><label for="touchWhat">What I want to change</label><input id="touchWhat" type="text" placeholder="[ONE THING] for example the title color"></div>
-    <div><label for="touchTo">Change it to</label><input id="touchTo" type="text" placeholder="[MY IDEA] for example dark green"></div>
-  </div>
-  <div class="req"><span class="label">REQUEST 4 (MY TOUCH)</span><div class="prompt" id="r4"></div>
-    <div class="btns"><button class="btn-main" data-copy="r4">Copy Request 4</button><span class="copied" hidden>Copied</span></div></div>
-  <div class="done"><b>Done when it looks like this:</b> your change shows in the app. Everything else still works.</div>
-  <div class="hint"><b>Challenge:</b> ask for one more feature in a new request, for example "Add 3 color theme buttons."</div>
+  <div class="step-head"><div class="num">5</div><div><span class="tag ai">AI SECOND</span><h2>Request 4: add a design toolkit</h2><p>Same chat. Copy, paste, send. Gemini needs about 3 minutes. Do not refresh while it is working.</p></div></div>
+  <div class="req"><span class="label">REQUEST 4</span><div class="prompt" id="r4t"></div>
+    <div class="btns"><button class="btn-main" data-copy="r4t">Copy Request 4</button><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> the form has 4 logo buttons (Square Overlap, Hexagon, Circle, Diamond) and a font menu. Pick Hexagon and Classic Serif, then press "Save front PNG". The PNG shows the hexagon and the serif font.</div>
+  <div class="hint"><b>App went blank or a feature is gone?</b> Press the <span class="ui">↶ Previous version (이전 버전)</span> arrow next to the app title, then send the request again.</div>
+  <div class="hint"><b>Stuck?</b> PNG still shows the old font: press the save button again after 2 seconds. Gemini said "error": type <b>Please try again.</b></div>
 </section>
 
 <!-- STEP 6 -->
 <section class="step" id="s6">
-  <div class="step-head"><div class="num">6</div><div><h2>Download your app file</h2></div></div>
+  <div class="step-head"><div class="num">6</div><div><span class="tag me">ME FIRST</span> <span class="tag ai">AI SECOND</span><h2>Request 5: "I want this design"</h2><p>Show Gemini a card design you like. Gemini changes your app to that style.</p></div></div>
+  <ol class="steps">
+    <li>Find one name card design you like. Search Google Images for <b>business card design minimal</b> (or elegant, colorful, travel). Right click the picture, <span class="ui">Save image as</span>. Or take a photo of a paper card.</li>
+    <li>In the same Gemini chat, press <span class="ui">+</span> → <span class="ui">Files (파일)</span> and choose your picture. You can also drag the picture into the chat box.</li>
+    <li>Copy Request 5, paste it next to the picture, send.</li>
+  </ol>
+  <div class="req"><span class="label">REQUEST 5</span><div class="prompt" id="r5"></div>
+    <div class="btns"><button class="btn-main" data-copy="r5">Copy Request 5</button><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> your card has the colors and layout of the picture, but still shows <b>your</b> studio name and details. Save buttons, QR code and toolkit still work.</div>
+  <div class="hint"><b>App went blank?</b> Gemini sometimes writes only part of the code. Press the <span class="ui">↶ Previous version (이전 버전)</span> arrow next to the app title. Your old app comes back. Then send Request 5 again.</div>
+  <div class="hint"><b>Rule:</b> borrow the style only (colors, layout, font feeling). Never copy another company's logo, brand name or text. Your card must still say your own studio name.</div>
+</section>
+
+<!-- STEP 7 -->
+<section class="step" id="s7">
+  <div class="step-head"><div class="num">7</div><div><span class="tag fin">ME FINAL</span><h2>My Touch: change one thing</h2><p>Look at your app. Find one thing that does not feel like you: a word, a color, the title, the example name. Ask Gemini to change only that.</p></div></div>
+  <div class="grid2">
+    <div><label for="touchWhat">What I want to change</label><input id="touchWhat" type="text" placeholder="[ONE THING] for example the title color"></div>
+    <div><label for="touchTo">Change it to</label><input id="touchTo" type="text" placeholder="[MY IDEA] for example dark green"></div>
+  </div>
+  <div class="req"><span class="label">REQUEST 6 (MY TOUCH)</span><div class="prompt" id="r4"></div>
+    <div class="btns"><button class="btn-main" data-copy="r4">Copy Request 6</button><span class="copied" hidden>Copied</span></div></div>
+  <div class="done"><b>Done when it looks like this:</b> your change shows in the app. Everything else still works.</div>
+  <div class="hint"><b>Challenge:</b> ask for one more feature in a new request, for example "Add 3 color theme buttons."</div>
+</section>
+
+<!-- STEP 8 -->
+<section class="step" id="s8">
+  <div class="step-head"><div class="num">8</div><div><h2>Download your app file</h2></div></div>
   <ol class="steps">
     <li>At the top of the app panel, press <span class="ui">Export (내보내기)</span>, then <span class="ui">Download code (코드 다운로드)</span>.</li>
     <li>Open your Downloads folder. Find the new .html file.</li>
@@ -191,9 +216,9 @@ ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
   <div class="hint"><b>Why rename?</b> We tested it: Netlify published the file named index.html at once, but a file with spaces in its name got stuck.</div>
 </section>
 
-<!-- STEP 7 -->
-<section class="step" id="s7">
-  <div class="step-head"><div class="num">7</div><div><h2>Publish with Netlify</h2></div></div>
+<!-- STEP 9 -->
+<section class="step" id="s9">
+  <div class="step-head"><div class="num">9</div><div><h2>Publish with Netlify</h2></div></div>
   <ol class="steps">
     <li>Open <a href="https://app.netlify.com/signup" target="_blank" rel="noopener">app.netlify.com/signup</a>. Sign up with your school Google account. (First time only.)</li>
     <li>Open <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">app.netlify.com/drop</a>.</li>
@@ -203,9 +228,9 @@ ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
   <div class="hint"><b>Stuck?</b> If you drop the file without signing in, Netlify puts a password on your site. Sign in first, then drop again.</div>
 </section>
 
-<!-- STEP 8 -->
-<section class="step" id="s8">
-  <div class="step-head"><div class="num">8</div><div><h2>Make it public and copy your link</h2></div></div>
+<!-- STEP 10 -->
+<section class="step" id="s10">
+  <div class="step-head"><div class="num">10</div><div><h2>Make it public and copy your link</h2></div></div>
   <ol class="steps">
     <li>On the project page, press <span class="ui">Make public</span>. New Netlify accounts make every project private at first.</li>
     <li>Copy the green link ending in <b>.netlify.app</b>. This is your app link.</li>
@@ -214,9 +239,9 @@ ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
   <div class="done"><b>Done when it looks like this:</b> the Private label is gone. Your link opens your app in a new tab.</div>
 </section>
 
-<!-- STEP 9 -->
-<section class="step" id="s9">
-  <div class="step-head"><div class="num">9</div><div><span class="tag fin">ME FINAL</span><h2>Check one thing, then submit</h2></div></div>
+<!-- STEP 11 -->
+<section class="step" id="s11">
+  <div class="step-head"><div class="num">11</div><div><span class="tag fin">ME FINAL</span><h2>Check one thing, then submit</h2></div></div>
   <label class="check"><input type="checkbox" id="chk1"><span><b>Check.</b> Open your link on your phone (not signed in to Netlify). Make a card with a nickname and save the PNG. Scan the QR code with the phone camera. Does your contact appear? Yes means checked.</span></label>
   <div><label for="myLink">My app link</label><input id="myLink" type="text" placeholder="[MY LINK] for example https://w09-himal-cards.netlify.app"></div>
   <div class="prompt" id="padletText"></div>
@@ -231,7 +256,7 @@ ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
 
 <section class="backup">
   <h3 style="font-size:18px">Gemini did not work after 3 tries?</h3>
-  <p>Use the <a href="builder.html">Backup Name Card Lab</a>. You choose keywords there and get a ready app link. Then go back to Step 9.</p>
+  <p>Use the <a href="builder.html">Backup Name Card Lab</a>. You choose keywords there and get a ready app link. Then go back to Step 11.</p>
 </section>
 
 <p class="note-legal">Practice project. Do not sell, and do not use real personal contact details.</p>
@@ -256,12 +281,14 @@ function niche(){ var i=+$("niche").value; return i===NICHES.length-1 ? ($("nich
 function color(){ var c=document.querySelector('input[name=color]:checked'); return COLORS[c?+c.value:0][1]; }
 function r1(){ return 'Make a one page web app called "' + studio() + ' Name Card Maker" for ' + niche() + '.\nLeft: a form with business name, person name, job title, phone, email, and a welcome line in ' + $("language").value + '.\nRight: a live preview of the name card front and back (90 x 50 mm shape) that changes while I type.\nMain color: ' + color() + '. Style: ' + $("style").value + '. Simple English. Use fictional example details.'; }
 var R2 = 'Add two buttons under the preview: "Save front PNG" and "Save back PNG". Draw each card on an HTML canvas (1063 x 591 px) and download it as a PNG. Do not use html2canvas. If the download is blocked, show the image below the buttons so I can right click and save it.';
+var R4T = 'Add a design toolkit to the form:\n1. Logo symbol: 4 buttons (Square Overlap, Hexagon, Circle, Diamond). Draw the chosen shape with the business initials inside as the logo.\n2. Font: 4 choices from Google Fonts (Modern Sans: Montserrat, Classic Serif: Playfair Display, Friendly Round: Poppins, Tech Mono: JetBrains Mono).\n3. The saved PNG files must use the same logo style and font as the preview. Wait until the font is loaded before drawing.';
+var R5 = 'I want my card to look like this photo. Change the colors, layout and font style of my card preview and saved PNG files to match the photo. Copy only the style. Do not copy any logo, brand name, person name or text from the photo. Keep all my details and all features (logo and font toolkit, save buttons, QR code, vCard) working. Write the full code from start to end. Do not skip any part and do not write "existing code".';
 var R3 = 'Add a QR code on the back of the card. The QR code holds my contact (vCard). Also add a button "Save contact (vCard)" that downloads a .vcf file.';
 function r4(){ return 'Change ' + ($("touchWhat").value.trim()||"[ONE THING]") + ' to ' + ($("touchTo").value.trim()||"[MY IDEA]") + '. Keep everything else the same.'; }
 function padlet(){ return studio() + ' Name Card Maker\nFor: ' + niche() + '\nMy app: ' + ($("myLink").value.trim()||"[MY LINK]") + '\nMy Touch: I changed ' + ($("touchWhat").value.trim()||"[ONE THING]") + ' to ' + ($("touchTo").value.trim()||"[MY IDEA]") + '\nCheck: QR code shows my contact on my phone: ' + ($("chk1").checked?"Yes":"No"); }
 function update(){
   $("nicheOwn").style.display = (+$("niche").value===NICHES.length-1) ? "block" : "none";
-  $("r1").textContent=r1(); $("r2").textContent=R2; $("r3").textContent=R3; $("r4").textContent=r4(); $("padletText").textContent=padlet();
+  $("r1").textContent=r1(); $("r2").textContent=R2; $("r3").textContent=R3; $("r4t").textContent=R4T; $("r5").textContent=R5; $("r4").textContent=r4(); $("padletText").textContent=padlet();
 }
 $("niche").addEventListener("change", function(){ $("language").value = NICHES[+this.value][1]; update(); });
 ["studio","nicheOwn","language","style","touchWhat","touchTo","myLink","chk1"].forEach(function(id){ $(id).addEventListener("input",update); $(id).addEventListener("change",update); });
